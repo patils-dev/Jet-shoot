@@ -1,0 +1,23 @@
+body{
+    /* margin: 0;
+    padding: 0;  */
+    /* background-color: aquamarine; */
+  
+}
+#game-space{
+    background-color: rgb(83, 116, 179);
+    margin-top: 5%;
+    display: flex;
+}
+.left,.right{
+    height: 0;
+}
+.middle{
+    height: 100vh;
+    background-color: rgb(46, 83, 165);
+}
+/*#ex{
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+}*/
