@@ -1,4 +1,3 @@
-
     let c=document.getElementById("game-space");
     c.height=window.innerHeight;
     c.width=window.innerWidth;
@@ -21,25 +20,26 @@ function Circle(r,y,dy){
     }
 }
 
-
 let circleArray=[];
 let r=Math.floor(Math.random()*30);
 
 
 console.log(circleArray)
 function animate(){
+    console.log("svndf")
         requestAnimationFrame(animate);
         for(let i=0;i<40;i++)
         {
-            circleArray.push(new Circle(r,700,1))
-    
+            circleArray.push(new Circle(r,700,1));  
+            console.log(i);
         }
-        ctx.clearRect(0,0,innerWidth,innerHeight)
+        ctx.clearRect(0,0,innerWidth,innerHeight);
         
         for(let i=0;i<40;i++)
         {
-            console.log(circleArray[i])
             circleArray[i].update();
+            console.log(circleArray[i])    
         }
+        
 }     
 animate();
