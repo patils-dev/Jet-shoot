@@ -49,6 +49,7 @@
     let c=document.getElementById("game-space");
     c.height=window.innerHeight;
     c.width=window.innerWidth;
+    
     let ctx=c.getContext("2d");
                 
     function Circle(x,y,r,dy){
@@ -56,8 +57,7 @@
         this.x=x;
         this.y=y;
         this.dy=dy;
-
-        
+  
     this.draw=function(){
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.r,0,2*Math.PI);
@@ -70,7 +70,7 @@
         
     }
 
-    this.Touch = function(x, y) {
+    this.touch = function(x,y) {
     
         this.type = 'touch';    // we'll need this later
         this.x = x;             // the x coordinate
@@ -79,9 +79,9 @@
         this.opacity = 1;       // inital opacity. the dot will fade out
         this.fade = 0.05;       // amount by which to fade on each game tick
         // this.remove = false;    // flag for removing this entity. POP.update
-                                // will take care of this
+        // will take care of this
     
-        this.update = function() {
+        this.update1 = function() {
             // reduct the opacity accordingly
             this.opacity -= this.fade; 
             // if opacity if 0 or less, flag for removal
@@ -89,15 +89,11 @@
         };
     
         this.render = function() {
+            
             POP.Draw.circle(this.x, this.y, this.r, 'rgba(255,0,0,'+this.opacity+')');
         };
-    
     };
-
-
 }
-
-
 
 setInterval( function play(){
     let circleArray=[];
@@ -107,15 +103,15 @@ setInterval( function play(){
     for(let i=0;i<4;i++)
         {
             circleArray.push(new Circle(x,y,r,1));  
-
         }
-    
+
     ctx.clearRect(0,0,innerWidth,innerHeight); // just clear the whole game area
     circleArray.forEach(c=>{ c.update();});
+    c.touch(x,y);
     console.log("after foreach")
      
- },500)
-// play();
+ },800)
+
 
 
 
