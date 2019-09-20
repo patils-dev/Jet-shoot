@@ -107,10 +107,10 @@ setInterval( function play(){
 
     ctx.clearRect(0,0,innerWidth,innerHeight); // just clear the whole game area
     circleArray.forEach(c=>{ c.update();});
-    c.touch(x,y);
+    // c.touch(x,y);
     console.log("after foreach")
      
- },800)
+ },500)
 
 
 
