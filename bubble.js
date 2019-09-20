@@ -99,9 +99,33 @@
             this.draw();
         
         } 
+        showcord=function(event) {
+            var x1 = event.clientX;
+            var y1 = event.clientY;
+            console.log(x1+" "+y1);
+            var a = this.x - x1;
+            var b = this.y - y1;
+            
+            let d= Math.sqrt( a*a + b*b );
+                // Calculating distance 
+                // let d=Math.sqrt(Math.pow(this.x- x1, 2) +  
+                //             Math.pow(this.y- y1, 2) * 1.0); 
+            console.log(d);
+            if(!(d>this.r))
+            {
+                // console.log("clicked on bubble")
+            }
+        }
         clickfun=function(){
+            // let d=dist(mouseX,mouseY,this.x,this.y)
+            // if(d<this.r)
+            // {
+            //     console.log("clicked on bubble")
+            // }
+            this.showcord(event);
             
         }
+        
     }
 
 setInterval( function play(){
@@ -118,7 +142,7 @@ setInterval( function play(){
         circleArray.forEach(c=>{ c.update();});
         console.log("after foreach")
      
- },800)
+ },1000)
 
 //  window.addEventListener('click', function(e) {
 //     e.preventDefault();
